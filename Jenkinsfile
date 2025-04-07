@@ -2,23 +2,21 @@ pipeline {
     agent any
 
     stages {
-        stage('Clone') {
+        stage('Checkout') {
             steps {
-                echo 'Cloning the repository...'
+                checkout scm
             }
         }
 
         stage('Build') {
             steps {
-                echo 'Compiling the code...'
-                bat 'javac HelloWorld.java'
+                bat 'javac DateTimePrinter.java'
             }
         }
 
         stage('Run') {
             steps {
-                echo 'Running the application...'
-                bat 'java HelloWorld'
+                bat 'java DateTimePrinter'
             }
         }
     }
